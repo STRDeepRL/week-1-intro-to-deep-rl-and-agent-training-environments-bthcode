@@ -13,6 +13,7 @@ Note: This script is expected to have restricted changes.
 
 """
 
+#config.environment(disable_env_checking=True)
 import argparse
 import json
 import pathlib

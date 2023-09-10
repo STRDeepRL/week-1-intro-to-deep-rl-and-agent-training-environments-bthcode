@@ -30,7 +30,7 @@ from ray.rllib.evaluation.episode_v2 import EpisodeV2
 from ray.rllib.utils.typing import AgentID, EnvType, PolicyID
 
 
-def get_checkpoint_dir(search_dir: Path | str | None) -> Path | None:
+def get_checkpoint_dir(search_dir):
     """
     Returns the most recently modified checkpoint directory.
 
@@ -130,9 +130,9 @@ def algorithm_config(
     lstm: bool = False,
     num_workers: int = 0,
     num_gpus: int = 0,
-    lr: float | None = None,
-    policies_to_train: list[int] | None = None,
-    our_agent_ids: list[str] | None = None,
+    lr  = None,
+    policies_to_train = None,
+    our_agent_ids  = None,
     **kwargs,
 ) -> AlgorithmConfig:
     """
