@@ -12,7 +12,7 @@ import json
 
 # import cProfile
 # Set the working diretory to the repo root
-REPO_ROOT = "/Users/zla0368/Documents/RL/RL_Class/code/test_hw/week-1-intro-to-deep-rl-and-agent-training-environments-bthcode" #subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
+REPO_ROOT = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
 os.chdir(REPO_ROOT)
 
 SUBMISSION_CONFIG_FILE = sorted(
