@@ -219,14 +219,15 @@ class CompetativeRedBlueDoorWrapper(ObservationWrapper):
         # using Type, Color, State and Direction
         self.dim_sizes = np.array([len(Type), len(Color), max(len(State), len(Direction))])
 
+
         # Update agent observation spaces
         dim = sum(self.dim_sizes)
         for agent in self.env.agents:
             # Retrieve the shape of the original "image" observation_space 
-            view_height, view_width, _ = "______________"
+            view_height, view_width, _ = agent.observation_space['image'].shape
             # Reassign the "image" observation_space for one-hot encoding observations
             agent.observation_space["image"] = spaces.Box(
-                low=0, high=1, shape=("______________", "______________", "______________"), dtype=np.uint8
+                low=0, high=1, shape=(view_height, view_width, dim), dtype=np.uint8
             )
 
     def observation(self, obs: dict[AgentID, ObsType]) -> dict[AgentID, ObsType]:
@@ -246,11 +247,12 @@ class CompetativeRedBlueDoorWrapper(ObservationWrapper):
             if isinstance(agent_observations, list):
                 # If it is stacked observations from multiple agents
                 for observation in agent_observations:
+                    #oobs[0]['image'][0, :, :]
                     # update the given ["image"] observation with self.one_hot() with the updated self.dim_sizes
-                    observation["image"] = self.one_hot("______________", "______________")
+                    observation["image"] = self.one_hot(observation['image'].astype(int), self.dim_sizes)
             else:
                 # update the given ["image"] observation with self.one_hot() with the updated self.dim_sizes
-                agent_observations["image"] = self.one_hot("______________", "______________")
+                agent_observations["image"] = self.one_hot(agent_observations['image'].astype(int), self.dim_sizes)
 
         return obs
 

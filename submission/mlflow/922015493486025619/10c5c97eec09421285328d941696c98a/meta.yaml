@@ -1,0 +1,15 @@
+artifact_uri: /Users/brian.hone/str_code/RLClass/week-1-intro-to-deep-rl-and-agent-training-environments-bthcode/submission/mlflow/922015493486025619/10c5c97eec09421285328d941696c98a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '922015493486025619'
+lifecycle_stage: active
+run_id: 10c5c97eec09421285328d941696c98a
+run_name: PPO_MultiGrid-CompetativeRedBlueDoor-v3-DTDE-Red-Single_c12e9_00000
+run_uuid: 10c5c97eec09421285328d941696c98a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1694365749674
+status: 1
+tags: []
+user_id: unknown
